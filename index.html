@@ -323,7 +323,32 @@
             .contact-details {
                 grid-template-columns: 1fr;
             }
+
+            /* Animation du personnage */
+            .floating-character {
+                position: fixed;
+                width: 80px;
+                height: 80px;
+                background-image: url('https://i.ibb.co/GQGffFLc/Whats-App-Image-2025-05-23-at-16-45-59-removebg-preview.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                z-index: 1000;
+                opacity: 0;
+                transition: all 0.5s ease;
+                pointer-events: none;
+            }
+            
+            .floating-character.show {
+                opacity: 1;
+                animation: float 3s ease-in-out infinite;
+            }
+            
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) rotate(0deg); }
+                50% { transform: translateY(-20px) rotate(5deg); }
+            }
         }
+        
         
         /* Animations */
         @keyframes fadeInUp {
@@ -347,6 +372,8 @@
             color: #FF6B35;
             margin: 0 5px;
         }
+
+        
     </style>
 </head>
 <body>
@@ -578,6 +605,45 @@
                 console.log('🍻 Bienvenue Chez Mael ! Votre bar de quartier vous attend...');
             }, 1000);
         });
+
+        // Animation du personnage flottant
+        const character = document.createElement('div');
+        character.classList.add('floating-character');
+        document.body.appendChild(character);
+        
+        let lastScrollY = 0;
+        let characterTimer;
+        
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            
+            // Positions possibles (gauche et droite)
+            const positions = [
+                { right: '20px', left: 'auto', top: '20%' },
+                { left: '20px', right: 'auto', top: '40%' },
+                { right: '30px', left: 'auto', top: '60%' },
+                { left: '30px', right: 'auto', top: '80%' }
+            ];
+            
+            // Choisir une position aléatoire
+            const randomPosition = positions[Math.floor(Math.random() * positions.length)];
+            
+            // Appliquer la position
+            Object.assign(character.style, randomPosition);
+            
+            // Montrer le personnage
+            character.classList.add('show');
+            
+            // Cacher après 2 secondes
+            clearTimeout(characterTimer);
+            characterTimer = setTimeout(() => {
+                character.classList.remove('show');
+            }, 2000);
+            
+            lastScrollY = scrollY;
+        });
+        
     </script>
 </body>
 </html>
