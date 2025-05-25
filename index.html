@@ -1,649 +1,660 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chez Mael - Bar de Quartier Paris 20ème</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #2c2c2c;
-            background-color: #f8f6f0;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #DC143C 0%, #FF6347 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="https://i.ibb.co/svhWpsKm/Chat-GPT-Image-23-mai-2025-16-29-56.png" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="80" cy="70" r="2.5" fill="rgba(255,255,255,0.06)"/><circle cx="30" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            opacity: 0.3;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Navigation */
-        nav {
-            background-color: #B22222;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        nav li {
-            margin: 0 2rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-        
-        nav a:hover {
-            background-color: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://i.ibb.co/svhWpsKm/Chat-GPT-Image-23-mai-2025-16-29-56.png');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 6rem 0;
-            position: relative;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-        }
-        
-        /* Sections */
-        section {
-            padding: 4rem 0;
-            margin: 2rem 0;
-        }
-        
-        .section-alt {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #DC143C;
-            position: relative;
-        }
-        
-        h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(45deg, #DC143C, #FF6347);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-        
-        /* Cards */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 5px solid #FF6347;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-        
-        .card h3 {
-            color: #DC143C;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-        
-        /* Menu Styles */
-        .menu-section {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .menu-section h3 {
-            color: #DC143C;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            border-bottom: 2px solid #FF6347;
-            padding-bottom: 0.5rem;
-        }
-        
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px dotted #ddd;
-        }
-        
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-        
-        .menu-item-name {
-            font-weight: bold;
-            color: #B22222;
-        }
-        
-        .menu-item-desc {
-            font-style: italic;
-            color: #666;
-            font-size: 0.9rem;
-            margin-top: 0.2rem;
-        }
-        
-        .menu-item-price {
-            color: #FF6347;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        
-        /* Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .gallery img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-        
-        /* Contact */
-        .contact-info {
-            background: linear-gradient(135deg, #DC143C 0%, #FF6347 100%);
-            color: white;
-            border-radius: 15px;
-            padding: 3rem;
-            text-align: center;
-            margin: 2rem 0;
-        }
-        
-        .contact-info h3 {
-            color: white;
-            margin-bottom: 2rem;
-            font-size: 2rem;
-        }
-        
-        .contact-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .contact-item {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .contact-item h4 {
-            margin-bottom: 1rem;
-            color: #FFE4B5;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #2c2c2c;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 0.5rem 0;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-details {
-                grid-template-columns: 1fr;
-            }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chez Wamm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --corail: #FF6B6B;
+      --menthe: #32D29D;
+      --bleu: #4FC3F7;
+      --jaune: #FFE66D;
+      --sable: #FFF1E0;
+    }
 
-            /* Animation du personnage */
-            .floating-character {
-                position: fixed;
-                width: 80px;
-                height: 80px;
-                background-image: url('https://i.ibb.co/GQGffFLc/Whats-App-Image-2025-05-23-at-16-45-59-removebg-preview.png');
-                background-size: contain;
-                background-repeat: no-repeat;
-                z-index: 1000;
-                opacity: 0;
-                transition: all 0.5s ease;
-                pointer-events: none;
-            }
-            
-            .floating-character.show {
-                opacity: 1;
-                animation: float 3s ease-in-out infinite;
-            }
-            
-            @keyframes float {
-                0%, 100% { transform: translateY(0px) rotate(0deg); }
-                50% { transform: translateY(-20px) rotate(5deg); }
-            }
-        }
-        
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-on-scroll {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        
-        /* Special touches */
-        .warmth-indicator {
-            display: inline-block;
-            color: #FF6B35;
-            margin: 0 5px;
-        }
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--sable);
+      color: #333;
+    }
 
-        
-    </style>
+    h1 {
+      color: white;
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      color: var(--corail);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: var(--menthe);
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .handwritten {
+      font-family: 'Pacifico', cursive;
+    }
+
+    header, section, footer {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    header {
+      text-align: center;
+      background-color: var(--menthe);
+      color: white;
+    }
+
+    header p {
+      font-size: 1.1rem;
+    }
+
+    .event {
+      background-color: var(--bleu);
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+    }
+
+    .menu-item {
+      background-color: var(--jaune);
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    button, .whatsapp-button {
+      background-color: var(--corail);
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    footer {
+      background-color: var(--menthe);
+      color: white;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                <img src="https://i.ibb.co/RGFHZjRq/Chat-GPT-Image-23-mai-2025-16-39-16.png" alt="Logo Chez Mael" style="width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                <div>
-                    <h1 style="font-size: 3.5rem; margin: 0; text-shadow: 3px 3px 6px rgba(0,0,0,0.5);">
-                        <span style="color: #FFD700;">Chez</span> 
-                        <span style="color: #FF6347;">Mael</span>
-                    </h1>
-                    <p class="subtitle" style="margin: 0;">Votre bar de quartier dans le 20ème</p>
+  <header>
+    <h1>🍷 Bienvenue chez Wamm !</h1>
+    <p>Un bar-restaurant chaleureux, coloré et inclusif au cœur de Paris 🌆</p>
+    <img src="https://i.ibb.co/XyZWQvR/469958533-1129349598850443-9123438752378456705-n.jpg" alt="Intérieur chaleureux du restaurant" style="width:100%; border-radius: 8px; margin-top: 1rem;">
+  </header>
+
+  <section>
+    <h2>🎉 Nos événements</h2>
+    <div class="event">
+      <strong>🎶 Fête de la musique</strong><br />
+      Samedi 21 juin 2025<br />
+      <em>Concerts, bonne humeur & surprises toute la soirée !</em>
+    </div>
+  </section>
+
+  <section>
+    <h2>🍽️ À table !</h2>
+    <h3>Le midi</h3>
+    <div class="menu-item handwritten">Plat du jour - selon l'inspiration du chef (12€)</div>
+    <div class="menu-item handwritten">Salade César - Laitue, poulet rôti, croûtons, parmesan, sauce César maison (10€)</div>
+    <div class="menu-item handwritten">Burger Wamm - Pain brioché, steak haché, cheddar, oignons caramélisés, sauce spéciale Wamm (13€)</div>
+    <div class="menu-item handwritten">Pièce du boucher & frites - Viande du jour, frites maison, sauce au poivre (15€)</div>
+
+    <h3>Le soir</h3>
+    <div class="menu-item handwritten">Panini Méditerranéen - Tomate séchée, mozzarella, jambon cru, roquette (8€)</div>
+    <div class="menu-item handwritten">Panini Végétarien - Poivrons grillés, chèvre, pesto de basilic (7,50€)</div>
+    <div class="menu-item handwritten">Panini Poulet Curry - Poulet mariné, oignons, fromage, sauce curry douce (8€)</div>
+
+    <h3>Jeudi soir : Couscous party !</h3>
+    <div class="menu-item handwritten">Couscous - Semoule, légumes du marché, pois chiches, merguez, poulet ou boulettes (16€)</div>
+
+    <h3>🥤 Nos boissons</h3>
+    <div class="menu-item handwritten">Thé glacé maison - Citron, menthe fraîche (3€)</div>
+    <div class="menu-item handwritten">Limonade artisanale - Citron pressé, eau gazeuse, sirop maison (3€)</div>
+    <div class="menu-item handwritten">Bière locale pression (4€)</div>
+    <div class="menu-item handwritten">Verre de vin rouge, blanc ou rosé (4,50€)</div>
+    <div class="menu-item handwritten">Cocktail Wamm - Rhum, jus d’ananas, grenadine, menthe (7€)</div>
+    <div class="menu-item handwritten">Café - Expresso ou allongé (2€)</div>
+    <div class="menu-item handwritten">Chocolat chaud maison (3,50€)</div>
+    <div class="menu-item handwritten">Jus de fruits frais - orange, pomme, ananas (3,50€)</div>
+    <div class="menu-item handwritten">Eau minérale (1,50€)</div>
+    <div class="menu-item handwritten">Mojito classique (8€)</div>
+  </section>
+
+  <section>
+    <h2>📍 Infos pratiques</h2>
+    <p><strong>Adresse :</strong> 123 Rue de l'Exemple, 75000 Paris</p>
+    <p><strong>Horaires :</strong> 11h - 23h (fermé le lundi)</p>
+    <p><a href="https://maps.google.com" target="_blank">📌 Voir sur Google Maps</a></p>
+  </section>
+
+  <section>
+    <h2>📸 Souvenirs en images</h2>
+    <div class="gallery">
+      <img src="https://i.ibb.co/XyZWQvR/469958533-1129349598850443-9123438752378456705-n.jpg" alt="Photo 1">
+      <img src="https://i.ibb.co/ZBQ4rDJ/82610933-2587851534797564-7560550253930217472-n.jpg" alt="Photo 2">
+      <img src="https://i.ibb.co/mCmwzRt/101631391-2587851418130909-3749459166113038336-n.jpg" alt="Photo 3">
+      <img src="https://i.ibb.co/gJYDrjr/200614144-2883633315219383-5251683612844066601-n.jpg" alt="Photo 4">
+      <img src="https://i.ibb.co/DLdJBwz/470472228-1136582891460447-3428885979822803300-n.jpg" alt="Photo 5">
+      <img src="https://i.ibb.co/YhPCWJw/494059316-3949697515279619-7249564023330984381-n.jpg" alt="Photo 6">
+    </div>
+  </section>
+
+  <section>
+    <h2>📬 Contact & Réservation</h2>
+    <form>
+      <input type="text" placeholder="Votre nom" required />
+      <input type="tel" placeholder="Téléphone" required />
+      <textarea rows="4" placeholder="Votre message..."></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+    <p style="margin-top:1rem; text-align:center;">
+      <a href="https://wa.me/33123456789" class="whatsapp-button">📲 Réserver sur WhatsApp</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>Chez Wamm – 123 Rue de l'Exemple, Paris</p>
+    <p>Tél : 01 23 45 67 89</p>
+    <p><a href="https://maps.google.com" target="_blank">Google Maps</a></p>
+    <p>
+      <a href="#">Instagram</a> | <a href="#">Facebook</a>
+    </p>
+  </footer>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chez Wamm - Bar Restaurant Paris</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom scrollbar for a more polished look (optional) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF1E0; /* beige-sable */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF6B6B; /* corail-chaud */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e05252;
+        }
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        .menu-category-title {
+            font-family: 'Caveat', cursive;
+            /* text-shadow: 1px 1px 0px rgba(0,0,0,0.1); */
+        }
+        .dish-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align items to the top for multi-line ingredients */
+            margin-bottom: 0.75rem; /* space-y-3 equivalent */
+        }
+        .dish-details {
+            flex-grow: 1;
+        }
+        .dish-name {
+            font-family: 'Caveat', cursive;
+            font-size: 1.25rem; /* text-xl for drinks, 1.5rem for food */
+        }
+        .dish-price {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600; /* semibold */
+            color: #4A5568; /* gray-700 */
+            margin-left: 1rem; /* Add some space between name/ingredients and price */
+            white-space: nowrap; /* Prevent price from wrapping */
+        }
+        .dish-ingredients {
+            font-size: 0.875rem; /* text-sm */
+            color: #718096; /* gray-600 */
+            /* margin-left: 1rem; */ /* No longer needed here, handled by flex */
+            display: block;
+            line-height: 1.4;
+        }
+        .food-item .dish-name {
+             font-size: 1.5rem; /* text-2xl */
+        }
+
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'corail-chaud': '#FF6B6B',
+                        'vert-menthe': '#32D29D',
+                        'bleu-azur': '#4FC3F7',
+                        'jaune-citronne': '#FFE66D',
+                        'beige-sable': '#FFF1E0',
+                        'texte-sombre': '#4A4A4A', // For better readability on light backgrounds
+                        'texte-clair': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        nunito: ['Nunito', 'sans-serif'],
+                        caveat: ['Caveat', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-beige-sable font-nunito text-texte-sombre antialiased">
+
+    <header class="bg-corail-chaud shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-4xl font-caveat text-white">Chez Wamm</a>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#presentation" class="text-white hover:text-jaune-citronne px-3 py-2 rounded-md text-lg font-medium transition duration-150">Accueil</a>
+                    <a href="#evenements" class="text-white hover:text-jaune-citronne px-3 py-2 rounded-md text-lg font-medium transition duration-150">Évènements</a>
+                    <a href="#menu" class="text-white hover:text-jaune-citronne px-3 py-2 rounded-md text-lg font-medium transition duration-150">Menu</a>
+                    <a href="#galerie" class="text-white hover:text-jaune-citronne px-3 py-2 rounded-md text-lg font-medium transition duration-150">Galerie</a>
+                    <a href="#contact" class="text-white hover:text-jaune-citronne px-3 py-2 rounded-md text-lg font-medium transition duration-150">Contact</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-jaune-citronne focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
                 </div>
             </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-corail-chaud/95 backdrop-blur-sm">
+            <a href="#presentation" class="block text-white hover:text-jaune-citronne px-3 py-3 text-base font-medium text-center">Accueil</a>
+            <a href="#evenements" class="block text-white hover:text-jaune-citronne px-3 py-3 text-base font-medium text-center">Évènements</a>
+            <a href="#menu" class="block text-white hover:text-jaune-citronne px-3 py-3 text-base font-medium text-center">Menu</a>
+            <a href="#galerie" class="block text-white hover:text-jaune-citronne px-3 py-3 text-base font-medium text-center">Galerie</a>
+            <a href="#contact" class="block text-white hover:text-jaune-citronne px-3 py-3 text-base font-medium text-center">Contact</a>
         </div>
     </header>
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#ambiance">Notre Ambiance</a></li>
-                <li><a href="#menu">La Carte</a></li>
-                <li><a href="#galerie">Galerie</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section class="hero" id="accueil">
-        <div class="container hero-content">
-            <h2>Bienvenue Chez Mael <span class="warmth-indicator">🏠</span></h2>
-            <p>Un vrai bar de quartier, chaleureux et ouvert à tous. Venez partager un moment convivial dans une atmosphère authentique, où chacun se sent chez soi.</p>
-        </div>
-    </section>
-
-    <section id="ambiance">
-        <div class="container">
-            <h2>Notre Philosophie</h2>
-            <div class="cards">
-                <div class="card">
-                    <h3><span class="warmth-indicator">🤝</span> Convivialité</h3>
-                    <p>Chez Mael, nous cultivons l'art de la rencontre. Notre bar est un lieu de partage où les habitués côtoient les nouveaux venus dans une ambiance détendue et bienveillante.</p>
+    <section id="presentation" class="pt-16 pb-8 md:pt-24 md:pb-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-5xl md:text-7xl font-caveat text-corail-chaud">Bienvenue Chez Wamm !</h1>
+            </div>
+            <div class="md:flex md:items-center md:space-x-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://i.ibb.co/XyZWQvR/469958533-1129349598850443-9123438752378456705-n.jpg" alt="Ambiance chaleureuse Chez Wamm" class="rounded-lg shadow-2xl w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFF1E0/FF6B6B?text=Chez+Wamm';">
                 </div>
-                <div class="card">
-                    <h3><span class="warmth-indicator">🌍</span> Ouvert à Tous</h3>
-                    <p>Notre établissement est mixte et inclusif. Peu importe d'où vous venez ou qui vous êtes, vous trouverez toujours votre place à notre comptoir.</p>
-                </div>
-                <div class="card">
-                    <h3><span class="warmth-indicator">🏘️</span> Esprit Quartier</h3>
-                    <p>Ancré dans la vie du 20ème arrondissement, nous sommes le point de rencontre des riverains. Un endroit où se tissent les liens sociaux et naissent les amitiés.</p>
+                <div class="md:w-1/2">
+                    <p class="text-lg md:text-xl leading-relaxed mb-6">
+                        Niché au cœur d'un quartier vibrant de Paris, <strong class="font-caveat text-2xl text-vert-menthe">Chez Wamm</strong> est bien plus qu'un simple bar-restaurant. C'est un lieu de vie, de partage et de bonne humeur, où chaque visite est une nouvelle occasion de créer des souvenirs mémorables.
+                    </p>
+                    <p class="text-lg md:text-xl leading-relaxed mb-6">
+                        Nous sommes fiers d'offrir un espace convivial, inclusif et familial, où tout le monde se sent chez soi. Que vous veniez pour un déjeuner rapide, un apéro entre amis, un dîner savoureux ou pour vibrer au son de nos événements, notre équipe vous accueille toujours avec le sourire.
+                    </p>
+                    <p class="text-lg md:text-xl leading-relaxed">
+                        Venez découvrir notre univers coloré et joyeux, nos plats faits avec amour et notre ambiance unique !
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="menu" class="section-alt">
-        <div class="container">
-            <h2>Notre Carte</h2>
+    <section id="evenements" class="bg-vert-menthe text-white py-12 md:py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-caveat mb-8">Nos Évènements à Venir</h2>
+            <div class="bg-white text-texte-sombre p-8 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300">
+                <h3 class="text-3xl font-caveat text-corail-chaud mb-3">Fête de la Musique !</h3>
+                <p class="text-xl font-semibold mb-2">Samedi 21 Juin 2025</p>
+                <p class="text-lg">
+                    Préparez-vous à une soirée endiablée pour célébrer la musique sous toutes ses formes ! Ambiance garantie avec live music, DJs et surprises. Venez nombreux faire la fête avec nous !
+                </p>
+                <img src="https://placehold.co/300x200/FFE66D/4A4A4A?text=Musique+Festive" alt="Fête de la musique illustration" class="mx-auto mt-6 rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/300x200/FFE66D/4A4A4A?text=Musique';">
+            </div>
+            </div>
+    </section>
+
+    <section id="menu" class="py-12 md:py-20 bg-beige-sable">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-caveat text-corail-chaud text-center mb-16">Notre Carte Gourmande & Désaltérante</h2>
             
-            <div class="menu-section">
-                <h3><span class="warmth-indicator">🍽️</span> Restauration</h3>
-                
-                <div class="menu-item">
-                    <div>
-                        <div class="menu-item-name">Burger Maison</div>
-                        <div class="menu-item-desc">Pain artisanal, steak haché frais, cheddar, salade, tomate, oignons, frites maison</div>
+            <div class="mb-16">
+                <h3 class="menu-category-title text-4xl text-bleu-azur text-center mb-10">À Déguster</h3>
+                <div class="grid md:grid-cols-2 gap-x-10 gap-y-12">
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <h4 class="text-3xl font-caveat text-bleu-azur mb-6 border-b-2 border-bleu-azur pb-2">Le Midi</h4>
+                        <ul class="space-y-3">
+                            <li class="dish-item food-item">
+                                <div class="dish-details">
+                                    <span class="dish-name text-texte-sombre">Plat du Jour</span>
+                                    <span class="dish-ingredients">(Demandez à notre équipe pour la surprise du chef !)</span>
+                                </div>
+                                <span class="dish-price">14.50€</span>
+                            </li>
+                            <li class="dish-item food-item">
+                                <div class="dish-details">
+                                    <span class="dish-name text-texte-sombre">Salade César Wamm</span>
+                                    <span class="dish-ingredients">Poulet croustillant, romaine croquante, copeaux de parmesan, croûtons à l'ail, sauce César maison.</span>
+                                </div>
+                                <span class="dish-price">15.00€</span>
+                            </li>
+                            <li class="dish-item food-item">
+                                <div class="dish-details">
+                                    <span class="dish-name text-texte-sombre">Burger Chez Wamm</span>
+                                    <span class="dish-ingredients">Pain bun's artisanal, steak haché de bœuf français (VBF), cheddar maturé, oignons confits, tomate fraîche, laitue, sauce Wamm secrète, frites maison.</span>
+                                </div>
+                                <span class="dish-price">16.50€</span>
+                            </li>
+                            <li class="dish-item food-item">
+                                <div class="dish-details">
+                                    <span class="dish-name text-texte-sombre">Pièce du Boucher</span>
+                                    <span class="dish-ingredients">Sélection du jour (entrecôte, faux-filet...), frites maison, sauce au choix (poivre vert, béarnaise, roquefort).</span>
+                                </div>
+                                <span class="dish-price">19.00€</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="menu-item-price">14€</div>
-                </div>
-                
-                <div class="menu-item">
-                    <div>
-                        <div class="menu-item-name">Pièce du Boucher</div>
-                        <div class="menu-item-desc">Selon arrivage, accompagnée de légumes de saison et pommes de terre sautées</div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <h4 class="text-3xl font-caveat text-vert-menthe mb-6 border-b-2 border-vert-menthe pb-2">Le Soir</h4>
+                        <ul class="space-y-3 mb-8">
+                            <li class="dish-item food-item">
+                                <div class="dish-details">
+                                    <span class="dish-name text-texte-sombre">Panini "Le Classique Parisien"</span>
+                                    <span class="dish-ingredients">Jambon blanc supérieur, emmental fondant, beurre demi-sel, cornichons.</span>
+                                </div>
+                                <span class="dish-price">8.50€</span>
+                            </li>
+                            <li class="dish-item food-item">
+                                <div class="dish-details">
+                                    <span class="dish-name text-texte-sombre">Panini "L'Italien Ensoleillé"</span>
+                                    <span class="dish-ingredients">Mozzarella di bufala AOP, tomates séchées marinées, pesto verde frais, roquette.</span>
+                                </div>
+                                <span class="dish-price">9.50€</span>
+                            </li>
+                             <li class="dish-item food-item">
+                                <div class="dish-details">
+                                    <span class="dish-name text-texte-sombre">Panini "Le Chèvre Doux"</span>
+                                    <span class="dish-ingredients">Fromage de chèvre frais, miel de producteur, noix croquantes, ciboulette.</span>
+                                </div>
+                                <span class="dish-price">9.00€</span>
+                            </li>
+                            <li class="dish-item food-item">
+                                <div class="dish-details">
+                                    <span class="dish-name text-texte-sombre">Panini "Le Végétal Coloré"</span>
+                                    <span class="dish-ingredients">Caviar d'aubergine maison, poivrons grillés, courgettes marinées, feta, olives Kalamata.</span>
+                                </div>
+                                <span class="dish-price">9.00€</span>
+                            </li>
+                        </ul>
+                        <h4 class="text-3xl font-caveat text-jaune-citronne text-shadow mb-6 border-b-2 border-jaune-citronne pb-2" style="text-shadow: 1px 1px 0px #4A4A4A;">Spécial Jeudi Soir</h4>
+                        <ul class="space-y-3">
+                            <li class="dish-item food-item">
+                                <div class="dish-details">
+                                    <span class="dish-name text-texte-sombre">Couscous Royal de Wamm</span>
+                                    <span class="dish-ingredients">Semoule fine parfumée, bouillon de légumes mijotés, poulet fermier, merguez artisanale, boulettes de bœuf épicées, pois chiches, harissa maison.</span>
+                                </div>
+                                <span class="dish-price">22.00€</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="menu-item-price">18€</div>
-                </div>
-                
-                <div class="menu-item">
-                    <div>
-                        <div class="menu-item-name">Plat du Jour</div>
-                        <div class="menu-item-desc">Cuisine traditionnelle revisitée, préparée avec des produits frais</div>
-                    </div>
-                    <div class="menu-item-price">12€</div>
                 </div>
             </div>
 
-            <div class="menu-section">
-                <h3><span class="warmth-indicator">🍺</span> Boissons</h3>
-                
-                <div class="menu-item">
-                    <div>
-                        <div class="menu-item-name">Bières Pression</div>
-                        <div class="menu-item-desc">Stella Artois, Leffe, bière locale</div>
+            <div>
+                <h3 class="menu-category-title text-4xl text-vert-menthe text-center mb-10">Pour se Désaltérer</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <h4 class="text-2xl font-caveat text-corail-chaud mb-4 border-b border-corail-chaud pb-1">Sans Alcool</h4>
+                        <ul class="space-y-3">
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Coca-Cola / Zéro / Cherry</span></div> <span class="dish-price">3.50€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Limonade Artisanale Bio</span> <span class="dish-ingredients text-xs">Citron, Framboise-Hibiscus, Pêche</span></div> <span class="dish-price">4.00€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Jus de Fruits Pressés Minute</span> <span class="dish-ingredients text-xs">Orange, Pamplemousse, Citron</span></div> <span class="dish-price">4.50€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Nectars de Fruits Bio</span> <span class="dish-ingredients text-xs">Pomme, Ananas, Abricot, Tomate</span></div> <span class="dish-price">3.80€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Ice Tea Maison</span> <span class="dish-ingredients text-xs">Thé noir, pêche, menthe fraîche</span></div> <span class="dish-price">4.00€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Sirop à l'Eau</span> <span class="dish-ingredients text-xs">Menthe, Grenadine, Citron, Orgeat</span></div> <span class="dish-price">2.50€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Eau Minérale Plate / Gazeuse</span> <span class="dish-ingredients text-xs">Vittel (50cl), San Pellegrino (50cl)</span></div> <span class="dish-price">3.00€</span></li>
+                        </ul>
                     </div>
-                    <div class="menu-item-price">4€ - 6€</div>
-                </div>
-                
-                <div class="menu-item">
-                    <div>
-                        <div class="menu-item-name">Vins</div>
-                        <div class="menu-item-desc">Sélection de vins rouges, blancs et rosés au verre ou à la bouteille</div>
-                    </div>
-                    <div class="menu-item-price">4€ - 25€</div>
-                </div>
-                
-                <div class="menu-item">
-                    <div>
-                        <div class="menu-item-name">Cocktails Classiques</div>
-                        <div class="menu-item-desc">Mojito, Gin Tonic, Whisky Coca, Pastis...</div>
-                    </div>
-                    <div class="menu-item-price">7€ - 9€</div>
-                </div>
 
-                <div class="menu-item">
-                    <div>
-                        <div class="menu-item-name">Cafés & Boissons Chaudes</div>
-                        <div class="menu-item-desc">Expresso, café allongé, thé, chocolat chaud</div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <h4 class="text-2xl font-caveat text-jaune-citronne text-shadow mb-4 border-b border-jaune-citronne pb-1" style="text-shadow: 1px 1px 0px #4A4A4A;">Bières & Cidres</h4>
+                        <ul class="space-y-3">
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Bière Pression du Moment</span> <span class="dish-ingredients text-xs">Demandez notre sélection ! (25cl / 50cl)</span></div> <span class="dish-price">4.00€ / 7.50€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">"La Parisienne" Blonde (33cl)</span></div> <span class="dish-price">6.00€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">"La Wamm'bree" Ambrée (33cl)</span> <span class="dish-ingredients text-xs">Bière artisanale locale</span></div> <span class="dish-price">6.50€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Bière Blanche Fruitée (33cl)</span></div> <span class="dish-price">6.00€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Cidre Brut Artisanal (Bolée)</span></div> <span class="dish-price">4.50€</span></li>
+                        </ul>
                     </div>
-                    <div class="menu-item-price">2€ - 4€</div>
-                </div>
 
-                <div class="menu-item">
-                    <div>
-                        <div class="menu-item-name">Softs</div>
-                        <div class="menu-item-desc">Coca, jus de fruits, eau minérale</div>
-                    </div>
-                    <div class="menu-item-price">3€ - 4€</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="galerie">
-        <div class="container">
-            <h2>L'Ambiance Chez Mael</h2>
-            <p style="text-align: center; margin-bottom: 2rem; font-style: italic; color: #666;">
-                Découvrez l'atmosphère authentique de notre établissement, avec ses tons chaleureux, 
-                sa belle terrasse fleurie et son ambiance conviviale de jour comme de soir.
-            </p>
-            <div class="gallery">
-                <img src="https://i.ibb.co/svhWpsKm/Chat-GPT-Image-23-mai-2025-16-29-56.png" alt="Devant">
-                <img src="https://i.ibb.co/YFrm8LsJ/494059316-3949697515279619-7249564023330984381-n.jpg" alt="Intérieur chaleureux du restaurant">
-                <img src="https://i.ibb.co/4w2DFgmj/470472228-1136582891460447-3428885979822803300-n.jpg" alt="Salle de restaurant pendant les travaux">
-                <img src="https://i.ibb.co/TBtJsMXB/200614144-2883633315219383-5251683612844066601-n.jpg" alt="Wael préparant l'ouverture">
-                <img src="https://i.ibb.co/VYQ8JYRb/101631391-2587851418130909-3749459166113038336-n.jpg" alt="Belle terrasse avec parasol">
-                <img src="https://i.ibb.co/fVVzzs8W/469958533-1129349598850443-9123438752378456705-n.jpg" alt="Terrasse fleurie en bois">
-                <img src="https://i.ibb.co/4nSmmBw2/82610933-2587851534797564-7560550253930217472-n.jpg" alt="Vue nocturne depuis la rue">
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <div class="contact-info">
-                <h3><span class="warmth-indicator">📍</span> Venez Nous Voir !</h3>
-                <p>Retrouvez-nous dans le cœur du 20ème arrondissement, rue de la Bidassoa</p>
-                
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <h4>📍 Adresse</h4>
-                        <p>52 bis Rue de la Bidassoa<br>75020 Paris<br>Métro : Père Lachaise (lignes 2, 3)</p>
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                        <h4 class="text-2xl font-caveat text-bleu-azur mb-4 border-b border-bleu-azur pb-1">Nos Vins</h4>
+                        <ul class="space-y-3">
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Vin Rouge Sélection</span> <span class="dish-ingredients text-xs">Verre (12cl) / Pot (46cl) / Bouteille</span></div> <span class="dish-price">4.50€ / 15€ / 24€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Vin Blanc Sec & Fruité</span> <span class="dish-ingredients text-xs">Verre (12cl) / Pot (46cl) / Bouteille</span></div> <span class="dish-price">4.50€ / 15€ / 24€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Vin Rosé de Provence</span> <span class="dish-ingredients text-xs">Verre (12cl) / Pot (46cl) / Bouteille</span></div> <span class="dish-price">4.50€ / 16€ / 25€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Kir au Vin Blanc</span> <span class="dish-ingredients text-xs">Cassis, Mûre, Pêche</span></div> <span class="dish-price">5.00€</span></li>
+                        </ul>
                     </div>
                     
-                    <div class="contact-item">
-                        <h4>🕒 Horaires</h4>
-                        <p>Lundi - Samedi : 8h - 2h<br>
-                        Dimanche : 10h - 24h<br>
-                        <em>Cuisine servie jusqu'à 22h30</em></p>
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 md:col-span-2 lg:col-span-1 lg:col-start-2">
+                        <h4 class="text-2xl font-caveat text-corail-chaud mb-4 border-b border-corail-chaud pb-1">Boissons Chaudes</h4>
+                        <ul class="space-y-3">
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Café Espresso / Ristretto</span> <span class="dish-ingredients text-xs">Pur arabica</span></div> <span class="dish-price">2.20€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Café Allongé / Américano</span></div> <span class="dish-price">2.50€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Noisette / Décaféiné</span></div> <span class="dish-price">2.40€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Cappuccino / Latte Macchiato</span> <span class="dish-ingredients text-xs">Avec mousse de lait onctueuse</span></div> <span class="dish-price">4.00€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Chocolat Chaud "Comme Autrefois"</span> <span class="dish-ingredients text-xs">Chocolat noir Valrhona, lait entier</span></div> <span class="dish-price">4.50€</span></li>
+                            <li class="dish-item"><div class="dish-details"><span class="dish-name">Thés & Infusions Bio</span> <span class="dish-ingredients text-xs">Palais des Thés - demandez la carte</span></div> <span class="dish-price">3.80€</span></li>
+                        </ul>
                     </div>
-                    
-                    <div class="contact-item">
-                        <h4>📞 Contact</h4>
-                        <p>Téléphone : à venir<br>
-                        Email : contact@chezmael.fr<br>
-                        <em>Réservations conseillées le weekend</em></p>
-                    </div>
+                </div>
+            </div>
+            <p class="text-center mt-16 text-lg text-gray-600">Prix en Euros (€), service compris. Tous nos plats sont préparés avec des produits frais et beaucoup d'amour ! L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
+        </div>
+    </section>
+
+    <section id="infos" class="bg-bleu-azur text-white py-12 md:py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-caveat mb-10">Infos Pratiques</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div class="bg-white/20 p-6 rounded-lg backdrop-blur-sm">
+                    <h3 class="text-2xl font-caveat mb-3">Adresse</h3>
+                    <p class="text-lg">Chez Wamm<br>123 Rue de la Joie<br>750XX Paris, France</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=123+Rue+de+la+Joie+Paris" target="_blank" class="inline-block mt-3 bg-jaune-citronne text-texte-sombre hover:bg-yellow-400 font-semibold py-2 px-4 rounded-md transition duration-300">
+                        Voir sur Google Maps <i class="fas fa-map-marker-alt ml-2"></i>
+                    </a>
+                </div>
+                <div class="bg-white/20 p-6 rounded-lg backdrop-blur-sm">
+                    <h3 class="text-2xl font-caveat mb-3">Horaires d'Ouverture</h3>
+                    <p class="text-lg"><strong>Lundi - Vendredi :</strong> 10h00 - 00h00</p>
+                    <p class="text-lg"><strong>Samedi :</strong> 10h00 - 02h00</p>
+                    <p class="text-lg"><strong>Dimanche :</strong> Fermé (repos bien mérité !)</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Chez Mael - Bar de Quartier Paris 20ème. Tous droits réservés.</p>
-            <p><em>"Chez nous, chaque client devient un ami"</em> <span class="warmth-indicator">❤️</span></p>
+    <section id="galerie" class="py-12 md:py-20 bg-beige-sable">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-caveat text-corail-chaud text-center mb-12">Notre Univers en Images</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                    'https://i.ibb.co/XyZWQvR/469958533-1129349598850443-9123438752378456705-n.jpg',
+                    'https://i.ibb.co/ZBQ4rDJ/82610933-2587851534797564-7560550253930217472-n.jpg',
+                    'https://i.ibb.co/mCmwzRt/101631391-2587851418130909-3749459166113038336-n.jpg',
+                    'https://i.ibb.co/gJYDrjr/200614144-2883633315219383-5251683612844066601-n.jpg',
+                    'https://i.ibb.co/DLdJBwz/470472228-1136582891460447-3428885979822803300-n.jpg',
+                    'https://i.ibb.co/YhPCWJw/494059316-3949697515279619-7249564023330984381-n.jpg'
+                ].map((src, index) => `
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="${src}" alt="Galerie Chez Wamm ${index + 1}" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/FFF1E0/FF6B6B?text=Image+${index+1}';">
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-12 md:py-20 bg-vert-menthe text-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-caveat text-center mb-10">Contactez-Nous & Réservez</h2>
+            <div class="bg-white/90 text-texte-sombre p-8 rounded-xl shadow-2xl">
+                <form action="#" method="POST" id="contactForm">
+                    <div class="mb-6">
+                        <label for="name" class="block text-lg font-medium mb-1">Nom</label>
+                        <input type="text" name="name" id="name" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-corail-chaud focus:border-corail-chaud transition duration-150" placeholder="Votre nom complet" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="phone" class="block text-lg font-medium mb-1">Téléphone</label>
+                        <input type="tel" name="phone" id="phone" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-corail-chaud focus:border-corail-chaud transition duration-150" placeholder="Votre numéro de téléphone" required>
+                    </div>
+                    <div class="mb-8">
+                        <label for="message" class="block text-lg font-medium mb-1">Message</label>
+                        <textarea name="message" id="message" rows="5" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-corail-chaud focus:border-corail-chaud transition duration-150" placeholder="Votre demande, réservation, ou petit mot doux..." required></textarea>
+                    </div>
+                    <div class="text-center mb-6">
+                        <button type="submit" class="bg-corail-chaud hover:bg-red-500 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-lg">
+                            Envoyer le Message
+                        </button>
+                    </div>
+                </form>
+                <div id="form-message" class="text-center mt-4"></div>
+                <div class="text-center mt-8 border-t border-gray-300 pt-6">
+                    <p class="text-lg mb-3">Ou réservez plus rapidement via WhatsApp :</p>
+                    <a href="https://wa.me/33XXXXXXXXX" target="_blank" class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-lg">
+                        <i class="fab fa-whatsapp text-2xl mr-3"></i> Réserver sur WhatsApp
+                    </a>
+                    <p class="text-sm mt-2 text-gray-600">(Remplacez 33XXXXXXXXX par votre numéro)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-texte-sombre text-beige-sable py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="font-caveat text-3xl mb-3 text-corail-chaud">Chez Wamm</p>
+            <p class="mb-1">123 Rue de la Joie, 750XX Paris</p>
+            <p class="mb-3">Téléphone : <a href="tel:+33XXXXXXXXX" class="hover:text-vert-menthe">+33 X XX XX XX XX</a></p>
+            <div class="mb-4">
+                <a href="https://www.google.com/maps/search/?api=1&query=123+Rue+de+la+Joie+Paris" target="_blank" class="hover:text-vert-menthe underline">Voir sur Google Maps</a>
+            </div>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-beige-sable hover:text-bleu-azur transition duration-150"><i class="fab fa-facebook-f fa-2x"></i></a>
+                <a href="#" class="text-beige-sable hover:text-corail-chaud transition duration-150"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="#" class="text-beige-sable hover:text-jaune-citronne transition duration-150"><i class="fab fa-tiktok fa-2x"></i></a>
+            </div>
+            <p class="mt-6 text-sm text-gray-400">© <span id="currentYear"></span> Chez Wamm. Tous droits réservés. Site fait avec <i class="fas fa-heart text-corail-chaud"></i>.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Smooth scroll for anchor links in header (for desktop and mobile menu)
+        document.querySelectorAll('header nav a[href^="#"], #mobile-menu a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Calculate offset for sticky header
+                    const headerOffset = document.querySelector('header').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-on-scroll');
-                }
+        // Basic form submission message (no actual submission)
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('form-message');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                formMessage.textContent = 'Merci ! Votre message a bien été envoyé (simulation).';
+                formMessage.className = 'text-center mt-4 text-green-600 font-semibold'; // Made message more visible
+                contactForm.reset();
+                setTimeout(() => {
+                    formMessage.textContent = '';
+                }, 5000);
             });
-        }, observerOptions);
-
-        // Observe cards and menu sections
-        document.querySelectorAll('.card, .menu-section').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Welcome message
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                console.log('🍻 Bienvenue Chez Mael ! Votre bar de quartier vous attend...');
-            }, 1000);
-        });
-
-        // Animation du personnage flottant
-        const character = document.createElement('div');
-        character.classList.add('floating-character');
-        document.body.appendChild(character);
-        
-        let lastScrollY = 0;
-        let characterTimer;
-        
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const windowHeight = window.innerHeight;
-            
-            // Positions possibles (gauche et droite)
-            const positions = [
-                { right: '20px', left: 'auto', top: '20%' },
-                { left: '20px', right: 'auto', top: '40%' },
-                { right: '30px', left: 'auto', top: '60%' },
-                { left: '30px', right: 'auto', top: '80%' }
-            ];
-            
-            // Choisir une position aléatoire
-            const randomPosition = positions[Math.floor(Math.random() * positions.length)];
-            
-            // Appliquer la position
-            Object.assign(character.style, randomPosition);
-            
-            // Montrer le personnage
-            character.classList.add('show');
-            
-            // Cacher après 2 secondes
-            clearTimeout(characterTimer);
-            characterTimer = setTimeout(() => {
-                character.classList.remove('show');
-            }, 2000);
-            
-            lastScrollY = scrollY;
-        });
-        
+        }
     </script>
+
 </body>
 </html>
